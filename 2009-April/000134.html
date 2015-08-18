@@ -1,0 +1,165 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [swaml-devel] [Fwd: [Email-SIG] Plans for email 6.0]
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/swaml-devel/2009-April/index.html" >
+   <LINK REL="made" HREF="mailto:swaml-devel%40lists.berlios.de?Subject=Re%3A%20%5Bswaml-devel%5D%20%5BFwd%3A%20%5BEmail-SIG%5D%20Plans%20for%20email%206.0%5D&In-Reply-To=%3C1239087082.4701.2.camel%40frink.fundacionctic.org%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000133.html">
+   <LINK REL="Next"  HREF="000136.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[swaml-devel] [Fwd: [Email-SIG] Plans for email 6.0]</H1>
+    <B>Sergio Fernandez</B> 
+    <A HREF="mailto:swaml-devel%40lists.berlios.de?Subject=Re%3A%20%5Bswaml-devel%5D%20%5BFwd%3A%20%5BEmail-SIG%5D%20Plans%20for%20email%206.0%5D&In-Reply-To=%3C1239087082.4701.2.camel%40frink.fundacionctic.org%3E"
+       TITLE="[swaml-devel] [Fwd: [Email-SIG] Plans for email 6.0]">sergio at wikier.org
+       </A><BR>
+    <I>Tue Apr  7 08:51:22 CEST 2009</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000133.html">[swaml-devel] IICAI-09 Call for papers: Special session on Semantic	Web and Information Retrieval
+</A></li>
+        <LI>Next message: <A HREF="000136.html">[swaml-devel] Extended draft paper submission: EISWT-09 call for	papers
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#134">[ date ]</a>
+              <a href="thread.html#134">[ thread ]</a>
+              <a href="subject.html#134">[ subject ]</a>
+              <a href="author.html#134">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>
+Since email is one of the core dependencies of SWAML, we must take care
+of the status of this API. On PyCon2009 they plan to discuss the future
+version. Full thread at:
+
+ <A HREF="http://mail.python.org/pipermail/email-sig/2009-April/thread.html">http://mail.python.org/pipermail/email-sig/2009-April/thread.html</A>
+
+Cheers,
+
+
+-------- Forwarded Message --------
+From: Barry Warsaw &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/swaml-devel">barry at python.org</A>&gt;
+To: <A HREF="https://lists.berlios.de/mailman/listinfo/swaml-devel">email-sig at python.org</A>
+Subject: [Email-SIG] Plans for email 6.0
+Date: Thu, 2 Apr 2009 07:54:08 -0500
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+Hello everyone.
+
+Today's the last day of Pycon 2009 sprints and I'm eager to return  
+home and see my family.  Chris Withers and I had a good day sprinting  
+on the email package before he had to jet out, and although we only  
+closed one bug in Python 2.7 (this is where Chris's mantra &quot;backport,  
+backport&quot; begins :) we had a lot of good discussions about how and  
+where to fix outstanding problems in email.
+
+I have lots of ideas on how to improve the email package.  I plan on  
+creating a bit of space on the Python wiki to consolidate my thoughts  
+and to coordinate implementation.  I'm hoping some of you will be  
+interested enough to help with design, testing, use cases, and coding.
+
+We have a few older pages in the wiki covering the email package:
+
+<A HREF="http://wiki.python.org/moin/EmailSigSprint">http://wiki.python.org/moin/EmailSigSprint</A>
+<A HREF="http://wiki.python.org/moin/EmailSprint">http://wiki.python.org/moin/EmailSprint</A>
+
+Some of this we've accomplished.  Here's a rambling of some of my  
+thoughts on things we should do.
+
+* Turn all header values into Header instances.  It's difficult and  
+error prone to have to manage both strings and Headers as values, so  
+they should always be Header instances.  We should add a registry of  
+Header subclasses, based on the lower cased header name, for allowing  
+higher level semantic folding of header strings.
+
+* Implement a Message subclass registry for parsing.  This would allow  
+the parser to create custom subclasses based on the Content-Type found  
+while parsing the message.
+
+* Bytes and string interfaces.  This is the trickiest one.  I think  
+that internally, header names and values, and payloads should all be  
+represented as bytes.  But APIs should accept bytes and strings,  
+converting to bytes on input, and provide APIs to extract information  
+as either bytes or strings.  I've thought about a few ways to do this  
+cleanly, but haven't found anything I particularly like yet.  Remember  
+that in email in Py2 is horribly broken in its discrimination between  
+bytes and strings, but Py3 forces us to make a choice (which is a good  
+thing).
+
+* Clean up the API.  Where possible, simple attribute access should be  
+the norm.  Let's get rid of dumb API decisions (like str(msg)  
+including the Unix-From).  Let's fix the whole  
+get_payload(decode=True) debacle.  Let's fix stuff like needing to  
+specify unicode encodings twice in the same call.  Etc.
+
+* Add an external storage API so that messages with huge binary  
+payloads don't need to be fully stored in memory.
+
+* Let's target Python 3.1 (coming very soon) if possible, or Python  
+3.2 if not.  We should back port email 6.0 to Python 2.x, though we'll  
+have to decide how far back we should go (my suggestion: no earlier  
+than Python 2.5).
+
+* Fix the myriad of bugs in the tracker!
+
+That's it for now.  I'll figure out a place in the wiki for this and  
+we can start capturing our thoughts there.  One thing I've heard  
+pretty consistently is that while the email package has its problems,  
+it's one of the best email packages available for any language.  Let's  
+make it rock.
+
+Barry
+
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.9 (Darwin)
+
+iQCVAwUBSdS1cHEjvBPtnXfVAQL7egQAk4LQpdfruSdW3R+Egz7dqAWfbftBnQio
+dGdyZT/X8cyjGVO9wwcwo2u2c7+JPElpnvBnYZc9oMSFErfUvgumXZo3mEORaGpm
+hj/+s0vG8c79SzA9Jz5wB1sBj50c7xN1L7kDCR3Ncwhz4vJSkO8nLvOqaJiccuF8
+7s76zNewnO8=
+=Dayc
+-----END PGP SIGNATURE-----
+_______________________________________________
+Email-SIG mailing list
+<A HREF="https://lists.berlios.de/mailman/listinfo/swaml-devel">Email-SIG at python.org</A>
+Your options: <A HREF="http://mail.python.org/mailman/options/email-sig/sergio%40wikier.org">http://mail.python.org/mailman/options/email-sig/sergio%40wikier.org</A>
+-- 
+__      ___ _   _           
+\ \    / (_) |_(_)___ _ _   
+ \ \/\/ /| | / / / -_) '_|  Sergio Fern&#225;ndez
+  \_/\_/ |_|_\_\_\___|_|    <A HREF="http://www.wikier.org/">http://www.wikier.org/</A>
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000133.html">[swaml-devel] IICAI-09 Call for papers: Special session on Semantic	Web and Information Retrieval
+</A></li>
+	<LI>Next message: <A HREF="000136.html">[swaml-devel] Extended draft paper submission: EISWT-09 call for	papers
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#134">[ date ]</a>
+              <a href="thread.html#134">[ thread ]</a>
+              <a href="subject.html#134">[ subject ]</a>
+              <a href="author.html#134">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/swaml-devel">More information about the SWAML-Devel
+mailing list</a><br>
+</body></html>

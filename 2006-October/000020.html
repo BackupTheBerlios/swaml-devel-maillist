@@ -1,0 +1,108 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [swaml-devel] GSR prototype
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/swaml-devel/2006-October/index.html" >
+   <LINK REL="made" HREF="mailto:swaml-devel%40lists.berlios.de?Subject=Re%3A%20%5Bswaml-devel%5D%20GSR%20prototype&In-Reply-To=%3C1161284527.2608.16.camel%40localhost.localdomain%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000019.html">
+   <LINK REL="Next"  HREF="000021.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[swaml-devel] GSR prototype</H1>
+    <B>Sergio Fdez</B> 
+    <A HREF="mailto:swaml-devel%40lists.berlios.de?Subject=Re%3A%20%5Bswaml-devel%5D%20GSR%20prototype&In-Reply-To=%3C1161284527.2608.16.camel%40localhost.localdomain%3E"
+       TITLE="[swaml-devel] GSR prototype">sergio at wikier.org
+       </A><BR>
+    <I>Thu Oct 19 21:02:07 CEST 2006</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000019.html">[swaml-devel] GSR prototype
+</A></li>
+        <LI>Next message: <A HREF="000021.html">[swaml-devel] GSR prototype
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#20">[ date ]</a>
+              <a href="thread.html#20">[ thread ]</a>
+              <a href="subject.html#20">[ subject ]</a>
+              <a href="author.html#20">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>
+&gt;<i> Is it specific for SWAML, or is it compatible with any SIOC data source?
+</I>&gt;<i> If it is the later, I think it should be renamed to avoid confusion.
+</I>
+I can't assure that it reads all the sioc:Forums, I'll have to test it.
+
+The obvious test is to try it with the another software related with
+SIOC and mail lists: an exporter that uses Google Groups's RSS as the
+source of information [1]. The source is very poor and it generates a
+RDF [2] who uses incompatible SIOC properties, as sioc:modified_at.
+
+I'll have to research how to make more generic SPARQL queries, in order
+to prevent these (important) mistakes.
+
+&gt;<i> It works great for me! Just my two cents:
+</I>&gt;<i> 
+</I>&gt;<i> * Have you considered using a Calendar control for the dates? With your
+</I>&gt;<i> current UI, users can enter invalid dates, such as 31/February.
+</I>
+I know it. I'm a newbie in GTK, but I already have plans to change those
+components.
+
+&gt;<i> * It would be even greater to provide some visual feedback during the
+</I>&gt;<i> data loading phase. For example, a pop-up modal window could show a
+</I>&gt;<i> progress bar or the names of the files being loaded.
+</I>
+The same reason that before: I'm playing with a gtk.ProgressBar [3] to
+provide this visual feedback that you tell me.
+
+&gt;<i> Excellent work. Don't hesitate to announce your new application to the
+</I>&gt;<i> SIOC community.
+</I>
+If you don't have any problem, I prefer to wait a little bit more, until
+GSR becomes more stable and generic.
+
+Best regards
+
+[1]
+<A HREF="http://b4mad.net/datenbrei/archives/2006/05/30/generating-sioc-data-out-of-mailing-list-archives/">http://b4mad.net/datenbrei/archives/2006/05/30/generating-sioc-data-out-of-mailing-list-archives/</A>
+[2] <A HREF="http://b4mad.net/2006/05/30/googlegroups-sioc-dev.rdf">http://b4mad.net/2006/05/30/googlegroups-sioc-dev.rdf</A>
+
+-- 
+__      ___ _   _           
+\ \    / (_) |_(_)___ _ _   Sergio Fdez
+ \ \/\/ /| | / / / -_) '_|  GNU/LiNUX User: #298803
+  \_/\_/ |_|_\_\_\___|_|    Web: <A HREF="http://www.wikier.org/">http://www.wikier.org/</A>
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000019.html">[swaml-devel] GSR prototype
+</A></li>
+	<LI>Next message: <A HREF="000021.html">[swaml-devel] GSR prototype
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#20">[ date ]</a>
+              <a href="thread.html#20">[ thread ]</a>
+              <a href="subject.html#20">[ subject ]</a>
+              <a href="author.html#20">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/swaml-devel">More information about the SWAML-Devel
+mailing list</a><br>
+</body></html>

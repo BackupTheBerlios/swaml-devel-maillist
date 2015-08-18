@@ -1,0 +1,116 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [swaml-devel] Changing SWAML ontology not to be specific to	mailing lists
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/swaml-devel/2007-May/index.html" >
+   <LINK REL="made" HREF="mailto:swaml-devel%40lists.berlios.de?Subject=Re%3A%20%5Bswaml-devel%5D%20Changing%20SWAML%20ontology%20not%20to%20be%20specific%20to%0A%09mailing%20lists&In-Reply-To=%3C64c81f720705101212m5d9324c7j8574ae13eeba2115%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   
+   <LINK REL="Next"  HREF="000062.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[swaml-devel] Changing SWAML ontology not to be specific to	mailing lists</H1>
+    <B>Uldis Bojars</B> 
+    <A HREF="mailto:swaml-devel%40lists.berlios.de?Subject=Re%3A%20%5Bswaml-devel%5D%20Changing%20SWAML%20ontology%20not%20to%20be%20specific%20to%0A%09mailing%20lists&In-Reply-To=%3C64c81f720705101212m5d9324c7j8574ae13eeba2115%40mail.gmail.com%3E"
+       TITLE="[swaml-devel] Changing SWAML ontology not to be specific to	mailing lists">captsolo at gmail.com
+       </A><BR>
+    <I>Thu May 10 21:12:03 CEST 2007</I>
+    <P><UL>
+        
+        <LI>Next message: <A HREF="000062.html">[swaml-devel] SWAML won an award
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#61">[ date ]</a>
+              <a href="thread.html#61">[ thread ]</a>
+              <a href="subject.html#61">[ subject ]</a>
+              <a href="author.html#61">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>On 4/11/07, Alexandre Passant &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/swaml-devel">alex at passant.org</A>&gt; wrote:
+&gt;<i> On 4/11/07, Diego Berrueta &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/swaml-devel">diego at berrueta.net</A>&gt; wrote:
+</I>&gt;<i> &gt; El mar, 10-04-2007 a las 22:42 +0200, Sergio Fdez escribi&#243;:
+</I>&gt;<i> &gt; &gt; What do you think...?
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; I completely agree. Indeed, we should push to get these properties
+</I>&gt;<i> &gt; accepted into the SIOC specification ;-)
+</I>&gt;<i>
+</I>&gt;<i> +1
+</I>
++1 - apparently there is support for including these properties in SIOC core.
+Sergio, is that OK with you?
+
+I've added these properties to the &quot;work&quot; version [1] of the SIOC
+ontology. Will publish it once we have agreed on the details. Property
+names (according to SIOC naming convention): next_by_date and
+previous_by_date. Please look at their descriptions and suggest
+improvements.
+
+&gt;<i> It also fits well with the new &quot;Thread&quot; container that aims to order posts.
+</I>
+Thread does not really order posts, it just groups them. Please find
+some comments on sorting posts at the end of this email.
+
+&gt;<i> BTW, what about making this property an owl:TransitiveProperty ?
+</I>&gt;<i> Could be useful for reasoners.
+</I>
+Done. Can it cause any problems? There were some OWL changes to FOAF
+ontology (can't remember what exactly) which were later commented out
+due to some problems.
+
+&gt;<i> Finaly, re. the names of the properties: won't previous / next be enough ?
+</I>&gt;<i> Indeed, it can be previousByAlphabeticOrder or something else, but in
+</I>&gt;<i> the case of posts, previous / next &quot;natural&quot; meaning is chronological,
+</I>&gt;<i> so maybe the short name is enough.
+</I>
+&quot;next_by_date&quot; adds useful context, important to understanding how and
+why are these items ordered.
+
+In any case, next_by_date / previous_by_date acts as a &quot;shortcut&quot; or a
+way of describing results of sorting performed on some container. A
+more elaborate way to express sorting on a container would be to
+define a &quot;sort_by&quot; property. It could then point to a property [which
+data creator suggests] to sort by (e.g., dcterms:created).
+
+How does AtomOWL handle sorting of things?
+
+&quot;Representing Order in RDF&quot; [2] gives an good overview of different
+ways how order can be represented in RDF. That may also give some
+ideas.
+
+[1] <A HREF="http://sw.deri.org/svn/sw/2005/08/sioc/ontology/ns.rdf">http://sw.deri.org/svn/sw/2005/08/sioc/ontology/ns.rdf</A>
+[2] <A HREF="http://infolab.stanford.edu/~stefan/daml/order.html">http://infolab.stanford.edu/~stefan/daml/order.html</A>
+
+Uldis
+
+[ <A HREF="http://sioc-project.org/">http://sioc-project.org/</A> ]
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	
+	<LI>Next message: <A HREF="000062.html">[swaml-devel] SWAML won an award
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#61">[ date ]</a>
+              <a href="thread.html#61">[ thread ]</a>
+              <a href="subject.html#61">[ subject ]</a>
+              <a href="author.html#61">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/swaml-devel">More information about the SWAML-Devel
+mailing list</a><br>
+</body></html>

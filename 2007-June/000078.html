@@ -1,0 +1,123 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [swaml-devel] bug #11352 fixed (was: Swaml	as	an	starting	point	in QualiPSo project mailing list support)
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/swaml-devel/2007-June/index.html" >
+   <LINK REL="made" HREF="mailto:swaml-devel%40lists.berlios.de?Subject=Re%3A%20%5Bswaml-devel%5D%20bug%20%2311352%20fixed%20%28was%3A%20Swaml%09as%09an%09starting%09point%0A%09in%20QualiPSo%20project%20mailing%20list%20support%29&In-Reply-To=%3C1182276612.31423.44.camel%40reborn%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000076.html">
+   <LINK REL="Next"  HREF="000079.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[swaml-devel] bug #11352 fixed (was: Swaml	as	an	starting	point	in QualiPSo project mailing list support)</H1>
+    <B>Alvaro del Castillo</B> 
+    <A HREF="mailto:swaml-devel%40lists.berlios.de?Subject=Re%3A%20%5Bswaml-devel%5D%20bug%20%2311352%20fixed%20%28was%3A%20Swaml%09as%09an%09starting%09point%0A%09in%20QualiPSo%20project%20mailing%20list%20support%29&In-Reply-To=%3C1182276612.31423.44.camel%40reborn%3E"
+       TITLE="[swaml-devel] bug #11352 fixed (was: Swaml	as	an	starting	point	in QualiPSo project mailing list support)">acs at gsyc.escet.urjc.es
+       </A><BR>
+    <I>Tue Jun 19 20:10:12 CEST 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000076.html">[swaml-devel] bug #11352 fixed (was: Swaml as	an	starting	point	in QualiPSo project mailing list support)
+</A></li>
+        <LI>Next message: <A HREF="000079.html">[swaml-devel] bug #11352 fixed (was:	Swaml	as	an	starting	point	in QualiPSo project mailing list support)
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#78">[ date ]</a>
+              <a href="thread.html#78">[ thread ]</a>
+              <a href="subject.html#78">[ subject ]</a>
+              <a href="author.html#78">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>hi!
+
+El mar, 19-06-2007 a las 19:18 +0200, Diego Berrueta escribi&#243;:
+&gt;<i> El mar, 19-06-2007 a las 11:48 +0200, Alvaro del Castillo escribi&#243;:
+</I>&gt;<i> &gt; The memory usage with large archives could be an issue to have in
+</I>&gt;<i> &gt; account. With the URL above currently the memory usage is:
+</I>&gt;<i> &gt; 
+</I>&gt;<i> &gt;   PID USER      PR  NI  VIRT  RES  SHR S %CPU %MEM    TIME+  COMMAND
+</I>&gt;<i> &gt; 32162 acs       15   0  101m  62m  10m S  0.0  5.0   0:57.62 python2.4
+</I>&gt;<i> 
+</I>&gt;<i> Hi, Alvaro, all,
+</I>&gt;<i> 
+</I>&gt;<i> Yes, we are aware that there is a problem with memory comsumption. In
+</I>&gt;<i> fact, SWAML reads the whole mbox file into memory, which is clearly
+</I>&gt;<i> unacceptable for large mailing lists. We will explore some paths to
+</I>&gt;<i> avoid this. Probably it shouldn't be difficult to process the mbox file
+</I>&gt;<i> as a stream, and retaining in memory just the information required to
+</I>&gt;<i> wire the links between messages.
+</I>&gt;<i> 
+</I>&gt;<i> &gt; I have seen also that you have added &quot;apps/prototypes/sparql-endpoint&quot;.
+</I>&gt;<i> &gt; Do you plan to start working in the sparql-endpoint then? Do you have a
+</I>&gt;<i> &gt; roadmap for it?
+</I>&gt;<i> 
+</I>&gt;<i> Actually, we are working on this now. Our idea is to add to Buxon the
+</I>&gt;<i> feature of being able to query remote SPARQL endpoints (instead of
+</I>&gt;<i> fetching the RDF files). At the same time, we are trying to add an
+</I>&gt;<i> endpoint server to SWAML.
+</I>&gt;<i> 
+</I>
+My knowledge about SPARQL endpoints is very limited right now but as fas
+as I know it is a web service offering a SPARQL query service. Is it
+right? Do you have in mind the technologies you are going to use to
+implement it? I suppose you just need to receive the web service query
+and use RDFLib SPARQL implementation to do the query. Then you need to
+return the results from RDFLib SPARQL in the format the web service will
+implement.
+
+In QualiPSo project next week we will go to Italy for a meeting and we
+will present there SWAML project as an example of the way we could
+follow to cover our information sources.
+
+We are also studying right now:
+<A HREF="http://code.google.com/p/baetle/">http://code.google.com/p/baetle/</A>
+
+to analyze our ontologies and reuse as much as possible other ontologies
+that are already in use like SIOC, FOAF, DOAP and maybe Baetle.
+
+Our main goal is the &quot;Definition and prototyping of information
+management tools required for the collaborative platform&quot; (think in CDE
+like GForge and in someway Trac) and thinking in a semantic
+collaborative platform seems to be a very interesting path to explore.
+
+Kind regards!
+
+&gt;<i> Best regards,
+</I>
+-- 
+Alvaro del Castillo
+Project Manager GSyC/LibreSoft 
+U. Rey Juan Carlos, C/ Tulipan S/N, 28933 Mostoles, Madrid, Spain
+Tel:+34-91-488 85 23 Fax:+34-91-6647494 <A HREF="http://libresoft.es">http://libresoft.es</A>
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000076.html">[swaml-devel] bug #11352 fixed (was: Swaml as	an	starting	point	in QualiPSo project mailing list support)
+</A></li>
+	<LI>Next message: <A HREF="000079.html">[swaml-devel] bug #11352 fixed (was:	Swaml	as	an	starting	point	in QualiPSo project mailing list support)
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#78">[ date ]</a>
+              <a href="thread.html#78">[ thread ]</a>
+              <a href="subject.html#78">[ subject ]</a>
+              <a href="author.html#78">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/swaml-devel">More information about the SWAML-Devel
+mailing list</a><br>
+</body></html>

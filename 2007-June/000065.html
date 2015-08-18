@@ -1,0 +1,115 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [swaml-devel] Swaml as an starting point in QualiPSo project	mailing list support
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/swaml-devel/2007-June/index.html" >
+   <LINK REL="made" HREF="mailto:swaml-devel%40lists.berlios.de?Subject=Re%3A%20%5Bswaml-devel%5D%20Swaml%20as%20an%20starting%20point%20in%20QualiPSo%20project%0A%09mailing%20list%20support&In-Reply-To=%3C1181702073.5534.309.camel%40reborn%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   
+   <LINK REL="Next"  HREF="000066.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[swaml-devel] Swaml as an starting point in QualiPSo project	mailing list support</H1>
+    <B>Alvaro del Castillo</B> 
+    <A HREF="mailto:swaml-devel%40lists.berlios.de?Subject=Re%3A%20%5Bswaml-devel%5D%20Swaml%20as%20an%20starting%20point%20in%20QualiPSo%20project%0A%09mailing%20list%20support&In-Reply-To=%3C1181702073.5534.309.camel%40reborn%3E"
+       TITLE="[swaml-devel] Swaml as an starting point in QualiPSo project	mailing list support">acs at gsyc.escet.urjc.es
+       </A><BR>
+    <I>Wed Jun 13 04:34:33 CEST 2007</I>
+    <P><UL>
+        
+        <LI>Next message: <A HREF="000066.html">[swaml-devel] Swaml as an starting point in QualiPSo	project	mailing list support
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#65">[ date ]</a>
+              <a href="thread.html#65">[ thread ]</a>
+              <a href="subject.html#65">[ subject ]</a>
+              <a href="author.html#65">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Dear all,
+
+My name is Alvaro del Castillo and I am coordinating the QualiPSo
+(<A HREF="http://qualipso.org">http://qualipso.org</A>) A4 activity
+(<A HREF="http://www.qualipso.org/index.php?option=com_content&amp;task=view&amp;id=16&amp;Itemid=31">http://www.qualipso.org/index.php?option=com_content&amp;task=view&amp;id=16&amp;Itemid=31</A>) in URJC GSyC/LibreSoft team (<A HREF="http://libresoft.es">http://libresoft.es</A>).
+
+Right now we are in the specification phase of a system that will gather
+information from FLOSS projects information sources (Source code,
+Defects and Issues, Mailing list, Documentation ...) and it will create
+a semantic database for this contents. The final goal is to design a
+system that will let the FLOSS project developer/user to search
+semantically in all FLOSS project information sources.
+
+We have detected over 20 different information sources and we have
+created ontologies for most of them. Now we need to gather information
+from a selected group of this 20 sources. This gathered information will
+be converted to a semantic format (RDF probably) using the ontologies
+defined in the project.
+
+Researching posible solutions we have found SWAML project that it is
+very close to the idea we had for mailing list data sources. We have
+started to play a bit with the project using swaml converter from mbox
+to RDF triples using the sioc ontology. We have no problems until now
+with our quick tests. But trying to use Buxon it seems there is a
+problem with RDFlib (2.4.0-2ubuntu1) in the parsing of the RDF sioc
+contents:
+
+swaml-0.0.5/classes/cache.py
+def __listPosts(self): 
+... 
+posts  = sparqlGr.query(select, where)
+
+throws a &quot;parsing exception: not all arguments converted during string
+formatting&quot; and the TreeView in buxon isn't filled. It fails with the
+demo URL &quot;<A HREF="http://swaml.berlios.de/demo/index.rdf">http://swaml.berlios.de/demo/index.rdf</A>&quot; and also with our own
+tests.
+
+Do you know if there are some problems with the actual version of buxon
+and this version of RDFlib?
+
+At the end we need to integrate in our Semantic Framework (RDF store,
+Query engine, reasoner and inference server) all the developments for
+the different information sources so we can integrate all of them in a
+semantic way.
+
+We plan to have SWAML project as a prototype of a possible way to follow
+in implementing the information source data to RDF store path. 
+
+Congratulations for the project!
+
+-- 
+Alvaro del Castillo
+Project Manager GSyC/LibreSoft 
+U. Rey Juan Carlos, C/ Tulipan S/N, 28933 Mostoles, Madrid, Spain
+Tel:+34-91-488 85 23 Fax:+34-91-6647494 <A HREF="http://libresoft.es">http://libresoft.es</A>
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	
+	<LI>Next message: <A HREF="000066.html">[swaml-devel] Swaml as an starting point in QualiPSo	project	mailing list support
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#65">[ date ]</a>
+              <a href="thread.html#65">[ thread ]</a>
+              <a href="subject.html#65">[ subject ]</a>
+              <a href="author.html#65">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/swaml-devel">More information about the SWAML-Devel
+mailing list</a><br>
+</body></html>
